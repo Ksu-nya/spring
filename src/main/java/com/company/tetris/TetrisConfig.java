@@ -1,32 +1,31 @@
 package com.company.tetris;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.company.tetris.controller.Game;
+import com.company.tetris.controller.GameInterface;
 import com.company.tetris.model.Model;
+import com.company.tetris.model.ModelInterface;
 import com.company.tetris.model.ShapeFactory;
 import com.company.tetris.view.MainWindow;
+import com.company.tetris.view.MainWindowInterface;
 
 @Configuration
 public class TetrisConfig {
 	
 	@Bean
-	public MainWindow mainWindow() {
+	public MainWindowInterface mainWindow() {
 		return new MainWindow();
 	}
 	
 	@Bean
-	public Model model() {
+	public ModelInterface model() {
 		return new Model();
 	}
 	
 	@Bean
-	public Game game() {
+	public GameInterface game() {
 		return new Game();
 	}
 	

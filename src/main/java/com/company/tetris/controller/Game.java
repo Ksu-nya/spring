@@ -20,31 +20,19 @@ import org.springframework.stereotype.Component;
 import com.company.tetris.Actions;
 import com.company.tetris.GameState;
 import com.company.tetris.TetrisConfig;
+import com.company.tetris.listener.OnFinishEvent;
 import com.company.tetris.model.Model;
+import com.company.tetris.model.ModelInterface;
 import com.company.tetris.view.MainWindow;
+import com.company.tetris.view.MainWindowInterface;
 
 @Component
-public class Game implements Model.OnFinishEvent {
-
+public class Game implements OnFinishEvent, GameInterface {
+	
 	@Autowired
-	private Model mGameModel;
+	private ModelInterface mGameModel;
 	@Autowired
-	private MainWindow mWindow;
-
-	public KeyListener keyListener() {
-		return new KeyListener() {
-			public void keyPressed(KeyEvent e) {
-				onKeyPressed(e);
-			}
-
-			public void keyReleased(KeyEvent e) {
-
-			}
-
-			public void keyTyped(KeyEvent e) {
-			}
-		};
-	}
+	private MainWindowInterface mWindow;
 	
 	@PostConstruct
 	private void init() {
@@ -59,6 +47,21 @@ public class Game implements Model.OnFinishEvent {
 			}
 		};
 		mWindow.init(keyListener(), windowButtonsListener);
+	}
+
+	public KeyListener keyListener() {
+		return new KeyListener() {
+			public void keyPressed(KeyEvent e) {
+				onKeyPressed(e);
+			}
+
+			public void keyReleased(KeyEvent e) {
+
+			}
+
+			public void keyTyped(KeyEvent e) {
+			}
+		};
 	}
 
 	public void startGame() {

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 
 import com.company.tetris.Constants;
 import com.company.tetris.GameState;
+import com.company.tetris.listener.OnFinishEvent;
 
-@Component
-public class Model {
+public class Model implements ModelInterface {
 
 	@Autowired
 	private ShapeFactory mShapeFactory;
@@ -188,9 +188,5 @@ public class Model {
 	private Shape createShape() {
 		Shape shape = mShapeFactory.createRandomShape();
 		return shape;
-	}
-
-	public interface OnFinishEvent {
-		void onFinishEvent();
 	}
 }

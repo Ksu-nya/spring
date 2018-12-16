@@ -17,8 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 
-@Component
-public class MainWindow extends JComponent {
+public class MainWindow extends JComponent implements MainWindowInterface {
 	private JFrame mWindow;
 	private JLabel mScoreLabel;
 

@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="mGameModel" class="com.company.tetris.model.Model">
+	<bean id="gameModel" class="com.company.tetris.model.ModelInterface">
 	</bean>
-	<bean id="view" class="com.company.tetris.view.MainWindow">
+	<bean id="view" class="com.company.tetris.view.MainWindowInterface">
 	</bean>
 
 </beans>
